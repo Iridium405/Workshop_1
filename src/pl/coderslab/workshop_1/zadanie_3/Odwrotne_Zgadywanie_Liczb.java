@@ -15,19 +15,20 @@ public class Odwrotne_Zgadywanie_Liczb {
 
         while(!isFound){
             int guess = (max - min)/2 + min;
-            if(count > 10){
-                System.out.println("Oszukujesz!");
+            if(count >= 10){
+                System.out.println("Nie oszukuj!");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            } else {
+                count++;
             }
             System.out.println("Zgaduję: " + guess);
-            count++;
             System.out.println("1. mniej \n2. więcej \n3. trafiłeś");
-
             String answer = scn. nextLine();
+
             if(answer.toLowerCase().equals("mniej") || answer.equals("1")) {
                 max = guess;
             } else if (answer.toLowerCase().equals("więcej") || answer.equals("2")) {
